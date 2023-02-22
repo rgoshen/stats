@@ -10,12 +10,19 @@ const matches = fs_1.default
     .map((row) => {
     return row.split(',');
 });
+// enum - enumeration
+var matchResult;
+(function (matchResult) {
+    matchResult["homeWin"] = "H";
+    matchResult["awayWin"] = "A";
+    matchResult["draw"] = "D";
+})(matchResult || (matchResult = {}));
 let manUnitedWins = 0;
 for (const match of matches) {
-    if (match[1] === 'Man United' && match[5] === 'H') {
+    if (match[1] === 'Man United' && match[5] === matchResult.homeWin) {
         manUnitedWins++;
     }
-    else if (match[2] === 'Man United' && match[5] === 'A') {
+    else if (match[2] === 'Man United' && match[5] === matchResult.awayWin) {
         manUnitedWins++;
     }
 }
